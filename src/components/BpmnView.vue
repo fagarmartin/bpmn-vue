@@ -1,6 +1,6 @@
 <template>
   <div ref="container" class="flex-1"></div>
-  <div ref="propertyPanel"></div>
+  <div ref="propertyPanel" class="border"></div>
 </template>
 <script lang="ts"setup>
 import { ref, onMounted  } from 'vue'
@@ -39,7 +39,6 @@ const propertyPanel: Ref<HTMLDivElement | null> = ref(null)
 
 onMounted(() => {
     initializeBpmn()
-    console.log('bpmnModeler', bpmnModeler)
 })
 
 const initializeBpmn = async () => {
@@ -71,6 +70,5 @@ const initializeBpmn = async () => {
   let defaultXML = await fetchXML(diagram)
 
   await bpmnModeler.importXML(defaultXML)
-  console.log('diagram', defaultXML)
 }
 </script>
