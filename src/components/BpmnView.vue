@@ -1,15 +1,20 @@
 <template>
-  <div ref="container" class="grow"></div>
+  <div ref="container" class="w-full h-full"></div>
   <div ref="propertyPanel"></div>
 </template>
-<script setup>
+<script lang="ts"setup>
 import { ref, onMounted  } from 'vue'
+import type { Ref } from 'vue'
 
 //import bpmn modules
 import BpmnModeler from "bpmn-js/lib/Modeler"
 
+import { fetchXML } from '../utils.js'
+
 // importing minimap module
 import minimapModule from 'diagram-js-minimap'
+
+import diagram from '../assets/diagram.bpmn'
 
 //with ctrl+f you can search components
 import SearchModule from 'bpmn-js/lib/features/search'
@@ -29,14 +34,15 @@ import '@bpmn-io/properties-panel/assets/properties-panel.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'
 
 let bpmnModeler = null
-const container = ref<HTMLDivElement | null>(null)
-const propertyPanel = ref<HTMLDivElement | null>(null)
+const container: Ref<HTMLDivElement | null> = ref(null)
+const propertyPanel: Ref<HTMLDivElement | null> = ref(null)
 
 onMounted(() => {
     initializeBpmn()
+    console.log('bpmnModeler', bpmnModeler)
 })
 
-const initializeBpmn = () => {
+const initializeBpmn = async () => {
   bpmnModeler = new BpmnModeler({
     container: container.value,
     propertiesPanel: {
@@ -62,6 +68,9 @@ const initializeBpmn = () => {
     },
     */
   })
-  console.log('bpmnviewer', bpmnModeler)
+  let defaultXML = await fetchXML(diagram)
+
+  await bpmnModeler.importXML(defaultXML)
+  console.log('diagram', defaultXML)
 }
 </script>

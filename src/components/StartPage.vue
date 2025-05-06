@@ -2,7 +2,8 @@
     <div class="flex justify-center pt-8">
         <Button class="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer" @click="isVisibleBpmn = true"> BPMN </Button>
     </div>
-    <div v-show="isVisibleBpmn">
+    {{ isVisibleBpmn }}
+    <div v-show="isVisibleBpmn" class="h-full w-full">
         <BpmnView />
 
     </div>
