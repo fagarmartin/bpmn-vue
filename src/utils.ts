@@ -1,4 +1,4 @@
-export const fetchXML = async xmlPath => {
+export const fetchXML = async (xmlPath :string) => {
 	try {
 		const response = await fetch(xmlPath)
 

@@ -6,15 +6,14 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "isolatedModules": true,
     "moduleDetection": "force",
 
-    /* Necesario para references */
     "composite": true,
-    "noEmit": false,
-
+    "noEmit": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

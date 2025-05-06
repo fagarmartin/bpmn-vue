@@ -9,7 +9,7 @@ import type { Ref } from 'vue'
 //import bpmn modules
 import BpmnModeler from "bpmn-js/lib/Modeler"
 
-import { fetchXML } from '../utils.js'
+import { fetchXML } from '../utils'
 
 // importing minimap module
 import minimapModule from 'diagram-js-minimap'
