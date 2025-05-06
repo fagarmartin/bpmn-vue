@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="w-full h-full"></div>
+  <div ref="container" class="flex-1"></div>
   <div ref="propertyPanel"></div>
 </template>
 <script lang="ts"setup>
