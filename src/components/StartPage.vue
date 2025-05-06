@@ -13,5 +13,5 @@
     import { Button } from '@/components/ui/button'
     import BpmnView from '@/components/BpmnView.vue'
 
-    const isVisibleBpmn = ref<boolean>(false)
+    const isVisibleBpmn = ref<boolean>(true)
 </script>
