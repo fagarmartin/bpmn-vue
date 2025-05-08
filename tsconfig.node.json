@@ -11,7 +11,7 @@
     "moduleDetection": "force",
 
     "composite": true,
-    "noEmit": true,
+    "noEmit": false,
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
     /* Linting */
