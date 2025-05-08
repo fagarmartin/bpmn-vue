@@ -53,14 +53,17 @@ const initializeBpmn = async () => {
     additionalModules: [
       BpmnPropertiesPanelModule,
       BpmnPropertiesProviderModule,
+      ZeebePropertiesProviderModule,
+      ZeebeBehaviorsModule,
       minimapModule,
       SearchModule,
       BpmnColorPickerModule,
-      ZeebePropertiesProviderModule,
-      ZeebeBehaviorsModule,
       zeebeModdle,
       camundaCloudBehaviors
-    ]
+    ],
+    moddleExtensions: {
+			zeebe: zeebeModdle // for camunda 8
+		}
   })
   let defaultXML = await fetchXML(diagram)
 
