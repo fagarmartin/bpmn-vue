@@ -36,7 +36,7 @@ import 'bpmn-js/dist/assets/diagram-js.css'
 import '@bpmn-io/properties-panel/assets/properties-panel.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'
 
-let bpmnModeler = null
+let bpmnModeler: BpmnModeler | null = null
 const container: Ref<HTMLDivElement | null> = ref(null)
 const propertyPanel: Ref<HTMLDivElement | null> = ref(null)
 
@@ -45,10 +45,12 @@ onMounted(() => {
 })
 
 const initializeBpmn = async () => {
+  if (!container.value || !propertyPanel.value) return
+  
   bpmnModeler = new BpmnModeler({
-    container: container.value,
+    container: container.value as HTMLElement,
     propertiesPanel: {
-      parent: propertyPanel.value,
+      parent: propertyPanel.value as HTMLElement,
     },
     additionalModules: [
       BpmnPropertiesPanelModule,
@@ -62,8 +64,8 @@ const initializeBpmn = async () => {
       camundaCloudBehaviors
     ],
     moddleExtensions: {
-			zeebe: zeebeModdle // for camunda 8
-		}
+      zeebe: zeebeModdle // for camunda 8
+    }
   })
   let defaultXML = await fetchXML(diagram)
 

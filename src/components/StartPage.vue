@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col h-screen">
-        <div class="flex justify-center items-center p-2">
+        <div class="flex justify-center items-center p-2 space-x-4">
             <Button class="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer" @click="visibleComponent = BPMNC7"> BPMN C7 </Button>
             <Button class="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer" @click="visibleComponent = BPMNC8"> BPMN C8 </Button>
         </div>
